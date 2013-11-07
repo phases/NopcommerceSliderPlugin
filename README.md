@@ -12,7 +12,9 @@ Version
 Installation
 --------------
 
-Disable the default slider plugin before/after and build the Presentation project after installing this
+  - Disable the default slider plugin
+  - Build the Presentation project after installation
+  - See the magic
 
 License
 ----
