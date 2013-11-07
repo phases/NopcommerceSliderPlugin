@@ -1,0 +1,93 @@
+﻿@model Nop.Plugin.Widgets.CustomSlider.Models.PublicInfoModel
+@{
+    Layout = "";
+
+    Html.AddScriptParts("~/Plugins/Widgets.CustomSlider/Scripts/jquery.anythingslider.js");
+    Html.AddCssFileParts("~/Plugins/Widgets.CustomSlider/Content/Customslider/CustomSlider.css");
+                //Html.AddCssFileParts("~/Plugins/Widgets.CustomSlider/Content/Customslider/themes/default/default.css");
+}
+@using System
+@using Nop.Web.Framework.UI
+
+
+
+
+
+
+
+@helper RenderSliderLine(string pictureUrl, string Title, string buttonText, string shortDescription, string link)
+            {
+                
+               <li> 
+                <div class="banner-left">
+                    @if (!string.IsNullOrEmpty(Title))
+                    {
+                        <h2>@Title</h2>
+                    }
+                    @if (!string.IsNullOrEmpty(shortDescription))
+                    {
+                        <p>@shortDescription</p>
+                    }
+                    @if (!string.IsNullOrEmpty(buttonText) || !string.IsNullOrEmpty(link))
+                    {
+                        @*<div class="buy-btn">
+                            <div class="buy-btn-wrapper">
+                                @if (!string.IsNullOrEmpty(buttonText))
+                                {
+                                    <span>@buttonText<sup> &euro; </sup></span>
+                                }
+                                <a href="@link">Buy</a>
+                            </div>
+                        </div>*@
+                        <button class="btn btn-customSlider" style="background-color: #549296; ">@buttonText</button>
+                    }
+                </div>
+                <div class="banner-right">
+                    @if(!string.IsNullOrEmpty(pictureUrl))
+                    {
+                        <img src="@pictureUrl" alt="banner">
+                    }   
+                </div>
+                   </li>
+            }
+
+
+
+<section role="banner">
+    <ul id="slider1">
+        
+            @RenderSliderLine(Model.Picture1Url, Model.Title1, Model.ButtonText1, Model.ShortDescription1, Model.Link1)
+            @RenderSliderLine(Model.Picture2Url, Model.Title2, Model.ButtonText2, Model.ShortDescription2, Model.Link2)
+            @RenderSliderLine(Model.Picture3Url, Model.Title3, Model.ButtonText3, Model.ShortDescription3, Model.Link3)
+            @RenderSliderLine(Model.Picture4Url, Model.Title4, Model.ButtonText4, Model.ShortDescription4, Model.Link4)
+            @RenderSliderLine(Model.Picture5Url, Model.Title5, Model.ButtonText5, Model.ShortDescription5, Model.Link4)
+            @RenderSliderLine(Model.Picture6Url, Model.Title6, Model.ButtonText6, Model.ShortDescription6, Model.Link6)
+
+    </ul>
+</section>
+@*<div class="slider-wrapper theme-default">
+    <div id="Custom-slider" class="CustomSlider">
+        
+    </div>
+</div>*@
+@*<script type="text/javascript">
+    $(window).load(function () {
+        $('#Custom-slider').CustomSlider();
+    });
+</script>*@
+<script>
+    $(function () {
+        $('#slider1').anythingSlider({
+            expand: true,
+            autoPlay: true,
+            hashTags: false,
+            buildArrows: false,
+            buildStartStop: false
+        });
+
+    });
+    var anything_start = 1;
+    var anything_content = "";
+    var is_anything_selected = false;
+
+</script>
