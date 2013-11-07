@@ -5,6 +5,8 @@ Nopcommerce plugin with customizable text. The default slider plugin has no opti
 http://css-tricks.com/anythingslider-jquery-plugin/
 
 Version
+----
+
 0.9
 
 Installation
